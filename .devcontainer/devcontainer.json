@@ -1,0 +1,14 @@
+{
+  "name": "css-preflight",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "runArgs": ["--name", "woodbrettm.css-preflight.dev"],
+  "postCreateCommand": ["pnpm", "install"],
+  "remoteUser": "node",
+  "customizations": {
+    "vscode": {
+      "extensions": ["esbenp.prettier-vscode"]
+    }
+  }
+}

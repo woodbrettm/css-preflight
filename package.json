@@ -1,0 +1,32 @@
+{
+  "name": "css-preflight",
+  "version": "0.1.1",
+  "description": "Tailwind preflight with some added enhancements.",
+  "main": "dist/style.css",
+  "keywords": [
+    "css",
+    "preflight",
+    "normalize",
+    "browser reset"
+  ],
+  "author": "Brett Wood",
+  "files": [
+    "LICENSE.md",
+    "LICENSE_TAILWIND.md",
+    "dist/style.css"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/woodbrettm/css-preflight"
+  },
+  "license": "MIT",
+  "bugs": "https://github.com/woodbrettm/css-preflight/issues",
+  "homepage": "https://github.com/woodbrettm/css-preflight",
+  "scripts": {
+    "build": "vite build"
+  },
+  "devDependencies": {
+    "vite": "4.5.0",
+    "prettier": "3.0.3"
+  }
+}

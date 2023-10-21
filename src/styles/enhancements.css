@@ -1,0 +1,29 @@
+/*
+  Adds smooth scrolling when a user is navigated to an
+  anchor on a page.
+*/
+
+:root {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion) {
+  :root {
+    scroll-behavior: auto;
+  }
+}
+
+/*
+  Helps prevent single words on a newline,
+  which can make a title seem unbalanced.
+*/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+blockquote {
+  text-wrap: balance;
+}
