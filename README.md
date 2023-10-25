@@ -28,7 +28,7 @@ This calculation is done using `%`, so the browser root font size
 will still affect using `rem` for accessibility purposes.
 
 ```javascript
-import 'css-preflight/rem-same-px;';
+import 'css-preflight/rem-same-px';
 ```
 
 ### License

@@ -1,6 +1,6 @@
 {
   "name": "css-preflight",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Tailwind preflight with some added enhancements.",
   "main": "./dist/core.css",
   "style": "./dist/core.css",
