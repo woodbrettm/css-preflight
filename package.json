@@ -1,8 +1,14 @@
 {
   "name": "css-preflight",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Tailwind preflight with some added enhancements.",
-  "main": "dist/style.css",
+  "main": "./dist/core.css",
+  "style": "./dist/core.css",
+  "type": "module",
+  "exports": {
+    ".": "./dist/core.css",
+    "./rem-same-px": "./dist/rem-same-px.css"
+  },
   "keywords": [
     "css",
     "preflight",
@@ -13,7 +19,7 @@
   "files": [
     "LICENSE.md",
     "LICENSE_TAILWIND.md",
-    "dist/style.css"
+    "dist"
   ],
   "repository": {
     "type": "git",
@@ -26,7 +32,6 @@
     "build": "vite build"
   },
   "devDependencies": {
-    "vite": "4.5.0",
-    "prettier": "3.0.3"
+    "vite": "4.5.0"
   }
 }

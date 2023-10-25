@@ -1,20 +1,34 @@
 # CSS Preflight
 
 This is a CSS browser normalizer based on Tailwind's preflight,
-with additional enhancements like smooth scrolling.
+with additional enhancements like smooth scrolling. The original
+preflight has several Tailwind-isms like tailwind-specific css variables,
+and usage of the tailwind `theme()` function, which have been removed.
 
-The original preflight has several Tailwind-isms like tailwind-specific
-css variables, and usage of the tailwind `theme()` function,
-which have been removed.
+## Core Usage:
 
-### Usage:
+The package `main:` links to a bundled `core.css` file, so simply import the package into
+the root project layout file, such as into `Layout.astro` for example. The core contains
+tailwind's preflight with additional enhancements.
 
-The package `main:` links to a bundled `style.css` file, so simply import the package into
-the root project layout file, such as into `Layout.astro` for example. The code is minified
-and comments have been removed.
+Note: the css is not minified.
 
 ```javascript
-import 'css-preflight';
+import 'css-preflight'; // imports core
+```
+
+## Utilities
+
+The package also comes with utilities:
+
+### `rem-same-px`
+
+Sets rem equal to 1px at the root, so they can be used interchangeably.
+This calculation is done using `%`, so the browser root font size
+will still affect using `rem` for accessibility purposes.
+
+```javascript
+import 'css-preflight/rem-same-px;';
 ```
 
 ### License

@@ -3,13 +3,17 @@ import { defineConfig } from 'vite';
 
 export default defineConfig({
   build: {
-    minify: true,
+    minify: false,
     sourcemap: false,
-    cssCodeSplit: false,
+    cssCodeSplit: true,
+    outDir: 'dist',
     lib: {
-      entry: resolve(__dirname, './src/index.js'),
+      entry: {
+        core: resolve(__dirname, './src/core/core.js'),
+        remSamePx: resolve(__dirname, './src/utils/rem-same-px.css'),
+      },
       name: 'CssPreflight',
-      fileName: 'css-preflight',
+      formats: ['es'],
     },
   },
 });

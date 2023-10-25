@@ -1,0 +1,11 @@
+/*
+  Converts 1rem to 1px to make it easier to convert between them
+*/
+
+:root {
+  font-size: 6.25%;
+}
+
+body {
+  font-size: 16rem;
+}
