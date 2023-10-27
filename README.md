@@ -1,5 +1,8 @@
 # CSS Preflight
 
+![npm](https://img.shields.io/npm/v/css-preflight)
+![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
+
 This is a CSS browser normalizer based on Tailwind's preflight,
 with additional enhancements like smooth scrolling. The original
 preflight has several Tailwind-isms like tailwind-specific css variables,
