@@ -19,7 +19,8 @@
   "files": [
     "LICENSE.md",
     "LICENSE_TAILWIND.md",
-    "dist"
+    "dist/core.css",
+    "dist/rem-same-px.css"
   ],
   "repository": {
     "type": "git",
