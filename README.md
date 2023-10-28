@@ -1,7 +1,7 @@
 # CSS Preflight
 
-![npm](https://img.shields.io/npm/v/css-preflight)
-![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
+[![npm](https://img.shields.io/npm/v/css-preflight)](https://www.npmjs.com/package/css-preflight)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/woodbrettm/css-preflight/blob/main/LICENSE.md)
 
 This is a CSS browser normalizer based on Tailwind's preflight,
 with additional enhancements like smooth scrolling. The original
