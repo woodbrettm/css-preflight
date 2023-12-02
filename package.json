@@ -1,38 +1,41 @@
 {
+  "$schema": "https://json.schemastore.org/package",
   "name": "css-preflight",
   "version": "0.2.4",
-  "description": "Tailwind preflight with some added enhancements.",
-  "main": "./dist/core.css",
-  "style": "./dist/core.css",
   "type": "module",
-  "exports": {
-    ".": "./dist/core.css",
-    "./rem-same-px": "./dist/rem-same-px.css"
+  "license": "MIT",
+  "description": "CSS browser reset based on Tailwind's preflight, with optional enhancements.",
+  "author": {
+    "name": "Brett Wood",
+    "url": "https://github.com/woodbrettm"
+  },
+  "bugs": "https://github.com/woodbrettm/css-preflight/issues",
+  "homepage": "https://github.com/woodbrettm/css-preflight",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/woodbrettm/css-preflight"
   },
   "keywords": [
     "css",
     "preflight",
     "normalize",
-    "browser reset"
+    "reset",
+    "normalizer",
+    "browser"
   ],
-  "author": "Brett Wood",
+  "main": "./styles/preflight.css",
+  "style": "./styles/preflight.css",
+  "exports": {
+    ".": "./styles/preflight.css",
+    "./preflight": "./styles/preflight.css",
+    "./enhancements": "./styles/enhancements.css",
+    "./rem-same-px": "./styles/rem-same-px.css"
+  },
   "files": [
     "LICENSE.md",
     "LICENSE_TAILWIND.md",
-    "dist/core.css",
-    "dist/rem-same-px.css"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/woodbrettm/css-preflight"
-  },
-  "license": "MIT",
-  "bugs": "https://github.com/woodbrettm/css-preflight/issues",
-  "homepage": "https://github.com/woodbrettm/css-preflight",
-  "scripts": {
-    "build": "vite build"
-  },
-  "devDependencies": {
-    "vite": "4.5.0"
-  }
+    "styles",
+    "package.json",
+    "README.md"
+  ]
 }
