@@ -1,0 +1,9 @@
+# Package-Related
+*lock.*
+.pnpm-store
+node_modules
+
+# Git-Related
+.git
+.gitignore
+.gitattributes
