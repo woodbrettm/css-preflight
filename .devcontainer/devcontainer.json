@@ -1,14 +1,15 @@
 {
+  "$schema": "https://raw.githubusercontent.com/devcontainers/spec/main/schemas/devContainer.schema.json",
   "name": "css-preflight",
   "build": {
     "dockerfile": "Dockerfile"
   },
-  "runArgs": ["--name", "woodbrettm.css-preflight.dev"],
+  "runArgs": ["--name", "css-preflight.dev"],
   "postCreateCommand": ["pnpm", "install"],
   "remoteUser": "node",
   "customizations": {
     "vscode": {
-      "extensions": ["esbenp.prettier-vscode"]
+      "extensions": ["esbenp.prettier-vscode", "stylelint.vscode-stylelint"]
     }
   }
 }
