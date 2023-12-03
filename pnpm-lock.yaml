@@ -6,7 +6,7 @@ settings:
 
 devDependencies:
   '@changesets/cli':
-    specifier: ^2.27.1
+    specifier: 2.27.1
     version: 2.27.1
   stylelint:
     specifier: 15.11.0
