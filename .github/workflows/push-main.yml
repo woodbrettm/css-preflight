@@ -46,5 +46,5 @@ jobs:
         id: changesets
         uses: changesets/action@v1
         env:
-          GTHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           # NPM_TOKEN: set in steps.op-tokens (export-env: true)
