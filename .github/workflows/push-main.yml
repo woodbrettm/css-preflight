@@ -43,8 +43,9 @@ jobs:
           NPM_TOKEN: op://dev/css-preflight/github-actions-npm-token
 
       - name: Release Pull Request or Publish to NPM
-        id: changesets
         uses: changesets/action@v1
+        with:
+          publish: pnpm release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           # NPM_TOKEN: set in steps.op-tokens (export-env: true)
