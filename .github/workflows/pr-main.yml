@@ -1,9 +1,6 @@
-name: Testing
+name: PR To Main Branch
 
 on:
-  push:
-    branches:
-      - main
   pull_request:
     types:
       - opened
@@ -15,7 +12,8 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout Repo
+        uses: actions/checkout@v4
 
       - name: Install PNPM
         uses: pnpm/action-setup@v2

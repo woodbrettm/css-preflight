@@ -42,6 +42,7 @@
     "README.md"
   ],
   "devDependencies": {
+    "@changesets/cli": "2.27.1",
     "stylelint": "15.11.0",
     "stylelint-config-standard": "34.0.0"
   }

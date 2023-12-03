@@ -1,0 +1,50 @@
+name: Push To Main Branch
+
+on:
+  push:
+    branches:
+      - main
+
+# So no other instances of workflow running at same time
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+
+      - name: Install PNPM
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+          run_install: false
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20.x
+          cache: pnpm
+
+      - name: Install Dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Lint Styles
+        run: pnpm run lint
+
+      - name: 1Password Load Tokens
+        id: op-tokens
+        uses: 1password/load-secrets-action@v1
+        with:
+          export-env: true
+        env:
+          OP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
+          NPM_TOKEN: op://dev/css-preflight/github-actions-npm-token
+
+      - name: Release Pull Request or Publish to NPM
+        id: changesets
+        uses: changesets/action@v1
+        env:
+          GTHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # NPM_TOKEN: set in steps.op-tokens (export-env: true)
