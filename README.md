@@ -51,7 +51,7 @@ import 'css-preflight/preflight'; // ALIAS: styles/preflight.css
 
 import 'css-preflight/enhancements'; // styles/enhancements.css
 
-import 'css-preflight/rem-same-px'; // styles/rem-same-px
+import 'css-preflight/rem-same-px'; // styles/rem-same-px.css
 ```
 
 #### Typical Setup
