@@ -1,37 +1,26 @@
-name: Push To Main Branch
+name: On Push To Main Branch
 
 on:
   push:
     branches:
       - main
 
-# So no other instances of workflow running at same time
+# So no other instances of release workflow run at same time
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 jobs:
   release:
+    name: Changesets Release Flow
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
 
-      - name: Install PNPM
-        uses: pnpm/action-setup@v2
-        with:
-          version: 8
-          run_install: false
+      - name: Prep Project
+        uses: ./.github/composite-actions/node-setup-ubuntu
 
-      - name: Install Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 20.x
-          cache: pnpm
-
-      - name: Install Dependencies
-        run: pnpm install --frozen-lockfile
-
-      - name: Lint Styles
-        run: pnpm run lint
+      - name: Code Checks
+        uses: ./.github/composite-actions/code-checks
 
       - name: 1Password Load Tokens
         id: op-tokens

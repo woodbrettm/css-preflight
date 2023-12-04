@@ -1,0 +1,8 @@
+name: Code Checks
+description: Checks code for compliance using linting, tests, etc.
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Lint Styles
+      run: pnpm run lint
