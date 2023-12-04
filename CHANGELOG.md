@@ -1,5 +1,11 @@
 # css-preflight
 
+## 1.0.1
+
+### Patch Changes
+
+- 20afb83: Internal updates to stylelint, github actions, and Readme.
+
 ## 1.0.0
 
 ### Major Changes
