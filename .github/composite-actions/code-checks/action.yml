@@ -4,6 +4,10 @@ description: Checks code for compliance using linting, tests, etc.
 runs:
   using: 'composite'
   steps:
-    - name: Lint Styles
-      run: pnpm run lint
+    - name: Stylelint
+      run: pnpm run stylelint
+      shell: bash
+
+    - name: Prettier Check
+      run: pnpm run prettier-check
       shell: bash
