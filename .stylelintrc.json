@@ -1,4 +1,10 @@
 {
   "$schema": "https://json.schemastore.org/stylelintrc.json",
-  "extends": "stylelint-config-standard"
+  "extends": "stylelint-config-standard",
+  "plugins": [
+    "stylelint-prettier"
+  ],
+  "rules": {
+    "prettier/prettier": true
+  }
 }

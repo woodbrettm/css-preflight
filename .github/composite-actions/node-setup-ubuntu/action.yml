@@ -1,0 +1,21 @@
+name: Node Setup Ubuntu
+description: Sets up Node, PNPM, and installs packages.
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Install PNPM
+      uses: pnpm/action-setup@v2
+      with:
+        version: 8
+        run_install: false
+
+    - name: Install Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 20.x
+        cache: pnpm
+
+    - name: Install Dependencies
+      run: pnpm install --frozen-lockfile
+      shell: bash
