@@ -41,3 +41,4 @@ jobs:
 
       - name: Regen Readme NPM Badge
         run: curl -X GET "https://img.shields.io/npm/v/css-preflight?color=red"
+        shell: bash

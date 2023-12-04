@@ -6,3 +6,4 @@ runs:
   steps:
     - name: Lint Styles
       run: pnpm run lint
+      shell: bash
