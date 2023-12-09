@@ -34,6 +34,7 @@
     ".": "./styles/preflight.css",
     "./preflight": "./styles/preflight.css",
     "./enhancements": "./styles/enhancements.css",
+    "./smooth-scroll": "./styles/smooth-scroll.css",
     "./rem-same-px": "./styles/rem-same-px.css"
   },
   "files": [
