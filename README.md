@@ -50,14 +50,14 @@ import 'css-preflight'; // styles/preflight.css
 import 'css-preflight/preflight'; // ALIAS: styles/preflight.css
 
 import 'css-preflight/enhancements'; // styles/enhancements.css
-
+import 'css-preflight/smooth-scroll'; // styles/smooth-scroll.css
 import 'css-preflight/rem-same-px'; // styles/rem-same-px.css
 ```
 
 #### Typical Setup
 
 ```javascript
-import 'css-preflight/preflight';
+import 'css-preflight';
 import 'css-preflight/enhancements';
 ```
 
@@ -71,8 +71,11 @@ Both are exactly the same.
 
 These are small enhancements added to the main preflight:
 
-- Enables smooth scrolling to anchor points (e.g. #about). Disabled for `prefers-reduced-motion`.
 - Adds `text-wrap: balance` on h1-h6 and blockquote. Helps prevent hanging words on newlines.
+
+### Smooth Scroll
+
+Enables smooth scrolling to anchor points (e.g. #about). Disabled for `prefers-reduced-motion`.
 
 ### Rem Same Px
 
