@@ -1,5 +1,11 @@
 # css-preflight
 
+## 1.1.0
+
+### Minor Changes
+
+- 7c90d68: Separate out smooth scrolling into its own import
+
 ## 1.0.1
 
 ### Patch Changes
