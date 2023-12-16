@@ -11,7 +11,7 @@ The following adjustments have been made to Tailwind's preflight, located in `st
 
 1. Tailwind-specific CSS variables removed.
 2. Tailwind postcss functions like `theme()` removed.
-3. Properties with vendor prefixes (e.g. `-webkit-`, `-moz-`) have been removed, to avoid duplication
+3. Vendor prefixes (e.g. `-webkit-`, `-moz-`) from css properties have been removed, to avoid duplication
    from autoprefixer when used. Inline comments in the `preflight.css` source code indicate which of
    these have been adjusted and note the original existing prefix.
 4. system-ui fonts have been removed completely from `font-family` properties in exchange for
@@ -36,7 +36,7 @@ npm install css-preflight
 
 ## Usage
 
-The exports are broken down into 3 main CSS files. Completely
+The exports are broken down into 4 main CSS files. Completely
 unprocessed so it's up to the dev to pass them through optimizations like
 Autoprefixer and minification.
 
