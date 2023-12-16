@@ -1,5 +1,11 @@
 # css-preflight
 
+## 1.1.1
+
+### Patch Changes
+
+- 0b74cf2: Readme Fixes
+
 ## 1.1.0
 
 ### Minor Changes
