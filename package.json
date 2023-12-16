@@ -26,7 +26,8 @@
   "scripts": {
     "stylelint": "stylelint \"./styles/*.css\"",
     "prettier-check": "prettier --check ./styles/*.css",
-    "release": "changeset publish"
+    "changeset:release": "changeset publish",
+    "changeset:add": "changeset"
   },
   "main": "./styles/preflight.css",
   "style": "./styles/preflight.css",

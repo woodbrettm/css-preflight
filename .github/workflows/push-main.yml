@@ -34,7 +34,7 @@ jobs:
       - name: Release Pull Request or Publish to NPM
         uses: changesets/action@v1
         with:
-          publish: pnpm release
+          publish: pnpm changeset:release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           # NPM_TOKEN: set in steps.op-tokens (export-env: true)
