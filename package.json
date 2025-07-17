@@ -23,20 +23,18 @@
     "normalizer",
     "browser"
   ],
-  "scripts": {
-    "stylelint": "stylelint \"./styles/*.css\"",
-    "prettier-check": "prettier --check ./styles/*.css",
-    "changeset:release": "changeset publish",
-    "changeset:add": "changeset"
-  },
   "main": "./styles/preflight.css",
   "style": "./styles/preflight.css",
   "exports": {
     ".": "./styles/preflight.css",
-    "./preflight": "./styles/preflight.css",
-    "./enhancements": "./styles/enhancements.css",
-    "./smooth-scroll": "./styles/smooth-scroll.css",
-    "./rem-same-px": "./styles/rem-same-px.css"
+    "./preflight.css": "./styles/preflight.css",
+    "./font-mono.css": "./styles/font-mono.css",
+    "./font-sans-serif.css": "./styles/font-sans-serif.css",
+    "./font-serif.css": "./styles/font-serif.css",
+    "./mono-elements.css": "./styles/mono-elements.css",
+    "./rem-same-px.css": "./styles/rem-same-px.css",
+    "./smooth-scroll.css": "./styles/smooth-scroll.css",
+    "./text-wrap-balance.css": "./styles/text-wrap-balance.css"
   },
   "files": [
     "LICENSE.md",
@@ -46,9 +44,17 @@
     "README.md"
   ],
   "devDependencies": {
-    "@changesets/cli": "2.27.1",
-    "stylelint": "15.11.0",
-    "stylelint-config-standard": "34.0.0",
-    "prettier": "3.1.0"
+    "@changesets/cli": "2.29.5",
+    "prettier": "3.6.2",
+    "vite": "7.0.4",
+    "eslint": "9.31.0",
+    "@eslint/css": "0.10.0"
+  },
+    "scripts": {
+    "changeset:version": "changeset version",
+    "changeset:add": "changeset",
+    "changeset:release": "changeset publish",
+    "dev": "vite dev --config \"./playground/vite.config.js\"",
+    "lint:css": "eslint \"./styles/**\""
   }
 }

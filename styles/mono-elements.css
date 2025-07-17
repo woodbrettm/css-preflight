@@ -1,0 +1,32 @@
+/*
+  Font list is built using a combination of Tailwind's mono settings and:
+  https://qwtel.com/posts/software/the-monospaced-system-ui-css-font-stack/
+
+  Use of system-ui has been removed.
+  https://infinnie.github.io/blog/2017/systemui.html
+*/
+
+code,
+kbd,
+samp,
+pre {
+  font-family:
+    SFMono-Regular,
+    Menlo,
+    Monaco,
+    "Cascadia Mono",
+    "Segoe UI Mono",
+    "Roboto Mono",
+    "Oxygen Mono",
+    "Ubuntu Mono",
+    "SF Mono",
+    "Source Code Pro",
+    "Fira Mono",
+    "Droid Sans Mono",
+    "Consolas",
+    "Liberation Mono",
+    "Courier New",
+    monospace;
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+}

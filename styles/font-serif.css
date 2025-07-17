@@ -1,0 +1,21 @@
+:root,
+:host {
+  font-family:
+    "Roboto Serif",
+    "Droid Serif",
+    "Baskerville",
+    "New York",
+    "Liberation Serif",
+    "Cantarell",
+    "Palatino",
+    "Georgia",
+    "Garamond",
+    "Times New Roman",
+    serif,
+    "Apple Color Emoji",
+    "Segoe UI Emoji",
+    "Segoe UI Symbol",
+    "Noto Color Emoji";
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+}
