@@ -5,9 +5,5 @@ runs:
   using: 'composite'
   steps:
     - name: Stylelint
-      run: pnpm run stylelint
-      shell: bash
-
-    - name: Prettier Check
-      run: pnpm run prettier-check
+      run: pnpm run lint:css
       shell: bash

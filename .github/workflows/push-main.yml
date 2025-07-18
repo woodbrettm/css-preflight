@@ -24,12 +24,12 @@ jobs:
 
       - name: 1Password Load Tokens
         id: op-tokens
-        uses: 1password/load-secrets-action@v1
+        uses: 1password/load-secrets-action@v2
         with:
           export-env: true
         env:
           OP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
-          NPM_TOKEN: op://dev/css-preflight/github-actions-npm-token
+          NPM_TOKEN: op://dev/css-preflight/GITHUB_ACTIONS_NPM_TOKEN
 
       - name: Release Pull Request or Publish to NPM
         uses: changesets/action@v1
@@ -38,7 +38,3 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           # NPM_TOKEN: set in steps.op-tokens (export-env: true)
-
-      - name: Regen Readme NPM Badge
-        run: curl -X PURGE "https://img.shields.io/npm/v/css-preflight?color=red"
-        shell: bash

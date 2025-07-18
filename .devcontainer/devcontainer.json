@@ -1,15 +1,23 @@
 {
   "$schema": "https://raw.githubusercontent.com/devcontainers/spec/main/schemas/devContainer.schema.json",
-  "name": "css-preflight",
-  "build": {
-    "dockerfile": "Dockerfile"
-  },
-  "runArgs": ["--name", "css-preflight.dev"],
-  "postCreateCommand": ["pnpm", "install"],
-  "remoteUser": "node",
+  "name": "CSS Preflight",
+  "dockerComposeFile": "./compose.yml",
+  "service": "node",
+  "workspaceFolder": "/home/node/css-preflight",
+  "postCreateCommand": ["pnpm", "install", "--frozen-lockfile"],
   "customizations": {
     "vscode": {
-      "extensions": ["esbenp.prettier-vscode", "stylelint.vscode-stylelint"]
+      "extensions": [
+        "esbenp.prettier-vscode",
+        "bierner.markdown-preview-github-styles"
+      ],
+      "settings": {
+        "[markdown]": {
+          "editor.defaultFormatter": "esbenp.prettier-vscode",
+          "editor.formatOnSave": true,
+          "editor.wordWrap": "off"
+        }
+      }
     }
   }
 }

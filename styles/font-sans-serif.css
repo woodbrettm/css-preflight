@@ -1,0 +1,21 @@
+:root,
+:host {
+  font-family:
+    "Inter",
+    "SF Pro",
+    "San Francisco",
+    "Segoe UI",
+    "Roboto",
+    "Liberation Sans",
+    "Helvetica Neue",
+    "Arial Nova",
+    "Helvetica",
+    "Arial",
+    sans-serif,
+    "Apple Color Emoji",
+    "Segoe UI Emoji",
+    "Segoe UI Symbol",
+    "Noto Color Emoji";
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+}

@@ -1,5 +1,55 @@
 # css-preflight
 
+## 2.0.0
+
+### Changes
+
+#### `.css` Extension
+
+Add the `.css` extension to any named imports.
+
+```javascript
+// Bare import stays the same
+import "css-preflight";
+
+// Named imports need .css extension now
+import "css-preflight/preflight.css";
+import "css-preflight/rem-same-px.css";
+// etc
+```
+
+#### Fonts
+
+The default fonts have been removed from the main preflight in exchange for optional imports.
+For most, the only needed changed would be adding the following import, which sets a default
+font stack for html elements using mono fonts.
+
+```javascript
+import "css-preflight/mono-elements.css";
+```
+
+#### Enhancements Export Deleted
+
+The following option has been deleted:
+
+```javascript
+import "css-preflight/enhancements";
+```
+
+And replaced with:
+
+```javascript
+import "css-preflight/text-wrap-balance.css";
+```
+
+The enhancements file only had a text-wrap balance rule in it, and was removed in favor of
+separate files for each optional import.
+
+#### Vendor Prefixes Re-Added
+
+Vendor prefixes like `-webkit-text-decoration` have been re-added that were present in the
+original Tailwind preflight. This may have implications for any auto prefix tooling.
+
 ## 1.1.1
 
 ### Patch Changes
@@ -25,13 +75,11 @@
 - 11372d8: This is the first major release of css-preflight.
 
   ### Repo Changes
-
   - Stylelint added.
   - Automated deployments and versioning using changesets and github actions.
   - Build system removed and source css files directly exposed instead of dist.
 
   ### CSS Changes
-
   - Browser prefixes have been removed (e.g. -webkit-, -moz-), with the intent for consumers
     of this package to use `autoprefixer` in their own build process.
 
@@ -48,8 +96,8 @@
   Possible imports are now as follows:
 
   ```javascript
-  import 'css-preflight'; // styles/preflight.css
-  import 'css-preflight/preflight'; // ALIAS: styles/preflight.css
-  import 'css-preflight/enhancements'; // styles/enhancements.css
-  import 'css-preflight/rem-same-px'; // styles/rem-same-px
+  import "css-preflight"; // styles/preflight.css
+  import "css-preflight/preflight"; // ALIAS: styles/preflight.css
+  import "css-preflight/enhancements"; // styles/enhancements.css
+  import "css-preflight/rem-same-px"; // styles/rem-same-px
   ```

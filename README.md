@@ -1,28 +1,31 @@
 # CSS Preflight
 
-[![npm](https://img.shields.io/npm/v/css-preflight?color=red)](https://www.npmjs.com/package/css-preflight)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/woodbrettm/css-preflight/blob/main/LICENSE.md)
+This is a CSS browser reset based on Tailwind's preflight, optimized for
+non-Tailwind projects. Optional enhancements like smooth scrolling and
+other utilities are also provided.
 
-This is a CSS browser reset based on Tailwind's preflight, optimized for non-Tailwind projects. **Optional** enhancements like smooth scrolling and other utilities are also provided (see usage).
+## Differences to Tailwind's Preflight
 
-## Preflight
+The following adjustments have been made to to the preflight:
 
-The following adjustments have been made to Tailwind's preflight, located in `styles/preflight.css`:
+1. Tailwind-specific CSS variables and styling removed.
+2. Two Tailwind `font-family` defaults have been removed from the
+   preflight in favor of optional imports. One was setting the
+   default font stack for the overall html document, and the other
+   was setting monospace fonts for html elements like `code`.
 
-1. Tailwind-specific CSS variables removed.
-2. Tailwind postcss functions like `theme()` removed.
-3. Vendor prefixes (e.g. `-webkit-`, `-moz-`) from css properties have been removed, to avoid duplication
-   from autoprefixer when used. Inline comments in the `preflight.css` source code indicate which of
-   these have been adjusted and note the original existing prefix.
-4. system-ui fonts have been removed completely from `font-family` properties in exchange for
-   either websafe fonts (e.g. Courier New for monospace elements), or removed completely (in the case
-   of the original preflight's font-family on `:root`).
+#### Why Font Family Defaults Removed
 
-#### Removing System UI Fonts
+Font stacks are a rapidly evolving space at the moment, and the use of
+system fonts is becoming more common, such as in Tailwind's
+preflight. However, the use of `system-ui` and similar values for the `font-family`
+property can be problematic. They not only depend on the OS version,
+but on the language settings of the OS as well, which can be unpredictable,
+according to the following article: https://infinnie.github.io/blog/2017/systemui.html.
 
-system-ui fonts can be problematic as they not only depend on the OS version, but on the language
-settings of the OS as well. These have been removed as it's felt they're too unpredictable to be
-left in as a preflight, and better left for a dev to intentionally specify them.
+Granted, this is an older article, but as a precaution, `font-family` defaults
+have been moved to optional imports with possible system fonts being manually
+specified over the usage of `system-ui`, `monospace-ui`, etc.
 
 ## Installation
 
@@ -34,56 +37,137 @@ pnpm add css-preflight
 npm install css-preflight
 ```
 
-## Usage
+## Typical Usage
 
-The exports are broken down into 4 main CSS files. Completely
-unprocessed so it's up to the dev to pass them through optimizations like
-Autoprefixer and minification.
-
-Simply import these into the root layout file (like `Layout.astro` for example).
-They should be imported first before any other CSS imports.
-
-#### Possible Imports
+Note this setup doesn't contain any defaults for the main font. Those are
+available as optional imports.
 
 ```javascript
-import 'css-preflight'; // styles/preflight.css
-import 'css-preflight/preflight'; // ALIAS: styles/preflight.css
+// main preflight
+// import "css-preflight" does the same.
+import "css-preflight/preflight.css";
 
-import 'css-preflight/enhancements'; // styles/enhancements.css
-import 'css-preflight/smooth-scroll'; // styles/smooth-scroll.css
-import 'css-preflight/rem-same-px'; // styles/rem-same-px.css
+// Sets default fonts for html elements that use monospace fonts
+// Unnecessary to use this if wanting to set your own monospace fonts
+import "css-preflight/mono-elements.css";
 ```
 
-#### Typical Setup
+For fastest performance, it's recommended to have the css directly
+injected into the html as a `<style>` tag, along with any other critical
+css applying to above-the-fold content. Avoid putting the `<style>` tag
+inside `<head>` as invalid css can break processing of other elements
+inside `<head>`.
+
+```html
+<head></head>
+<body>
+  <style>
+    <!-- Inject here -->
+  </style>
+  <!-- rest of html -->
+</body>
+```
+
+Reminder to set emoji font fallbacks when defining your own
+font stacks:
+
+```css
+:root,
+:host {
+  font-family:
+    /* Your fonts here */
+    /* then do: */
+    sans-serif,
+    /* or serif, or monospace, etc. */ "Apple Color Emoji",
+    "Segoe UI Emoji",
+    "Segoe UI Symbol",
+    "Noto Color Emoji";
+}
+```
+
+## Package Exports
+
+### Main Preflight
+
+The main Tailwind-derived CSS reset.
+
+#### Bare Import
 
 ```javascript
-import 'css-preflight';
-import 'css-preflight/enhancements';
+import "css-preflight"; // styles/preflight.css
 ```
 
-### Preflight
+#### Named Import
 
-Tailwind preflight (with adjustments mentioned previously). Can either do a bare
-`css-preflight` import, or use the more verbose option of `css-preflight/preflight`.
-Both are exactly the same.
+```javascript
+import "css-preflight/preflight.css"; // styles/preflight.css
+```
 
-### Enhancements
+### Default Main Fonts
 
-These are small enhancements added to the main preflight:
+Sets a default main font for the document (body text, headings, etc.) Only applies these
+to `:root` and `:host`, to be inherited by other elements. Useful in development when
+no main font has been chosen for the design yet, or for simple testing purposes.
 
-- Adds `text-wrap: balance` on h1-h6 and blockquote. Helps prevent hanging words on newlines.
+#### Mono
+
+```javascript
+import "css-preflight/font-mono.css";
+```
+
+#### Sans Serif
+
+```javascript
+import "css-preflight/font-sans-serif.css";
+```
+
+#### Serif
+
+```javascript
+import "css-preflight/font-serif.css";
+```
+
+### Mono Elements
+
+Sets a default mono font stack for the `code`, `kbd`, `samp`, and `pre`
+html elements. Many design and branding systems don't include
+mono font guidelines so this option can be useful for those cases.
+
+```javascript
+import "css-preflight/mono-elements.css";
+```
+
+### Rem Same Px
+
+Sets `1 rem = 1px` at the root for easier design-dev handoff. This calculation is done
+using `%`, so if the user adjusts the browser font sizes, those will still affect the page
+for accessibility purposes.
+
+Can sometimes mess up dev environment error messages though (the error UI becomes very,
+very small). That can be fixed of course, but just an FYI.
+
+```javascript
+import "css-preflight/rem-same-px.css"; // styles/rem-same-px.css
+```
 
 ### Smooth Scroll
 
 Enables smooth scrolling to anchor points (e.g. #about). Disabled for `prefers-reduced-motion`.
 
-### Rem Same Px
+```javascript
+import "css-preflight/smooth-scroll.css"; // styles/smooth-scroll.css
+```
 
-Sets rem equal to 1px at the root for easier design-dev handoff. This calculation is done
-using `%`, so the browser root font size will still affect fonts using `rem` for
-accessibility purposes.
+### Text Wrap Balance
 
-### License
+Adds `text-wrap: balance` on h1-h6 and blockquote. Helps prevent single hanging words on
+heading newlines.
+
+```javascript
+import "css-preflight/text-wrap-balance.css"; // styles/text-wrap-balance.css
+```
+
+## License
 
 The repo falls under MIT licensing, contained in the LICENSE.md file.
 Usage of the `preflight.css` file is also subject to Tailwind's licensing (MIT), which is included
