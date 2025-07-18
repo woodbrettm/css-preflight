@@ -29,7 +29,7 @@ jobs:
           export-env: true
         env:
           OP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
-          NPM_TOKEN: op://dev/css-preflight/github-actions-npm-token
+          NPM_TOKEN: op://dev/css-preflight/GITHUB_ACTIONS_NPM_TOKEN
 
       - name: Release Pull Request or Publish to NPM
         uses: changesets/action@v1
