@@ -1,0 +1,12 @@
+services:
+  node:
+    build:
+      context: .
+      dockerfile: ./node.Dockerfile
+    image: localhost/css-preflight_devcontainer-node:latest
+    userns_mode: "keep-id"
+    volumes:
+      - ../:/home/node/css-preflight
+    ports:
+      - 5173:5173
+    tty: true
