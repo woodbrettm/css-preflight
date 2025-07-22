@@ -1,5 +1,11 @@
 # css-preflight
 
+## 2.0.1
+
+### Patch Changes
+
+- Small Readme Fixes
+
 ## 2.0.0
 
 ### Changes
