@@ -22,19 +22,10 @@ jobs:
       - name: Code Checks
         uses: ./.github/composite-actions/code-checks
 
-      - name: 1Password Load Tokens
-        id: op-tokens
-        uses: 1password/load-secrets-action@v2
-        with:
-          export-env: true
-        env:
-          OP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
-          NPM_TOKEN: op://dev/css-preflight/GITHUB_ACTIONS_NPM_TOKEN
-
       - name: Release Pull Request or Publish to NPM
         uses: changesets/action@v1
         with:
           publish: pnpm changeset:release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          # NPM_TOKEN: set in steps.op-tokens (export-env: true)
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
