@@ -8,13 +8,10 @@
   "customizations": {
     "vscode": {
       "extensions": [
-        "esbenp.prettier-vscode",
         "bierner.markdown-preview-github-styles"
       ],
       "settings": {
         "[markdown]": {
-          "editor.defaultFormatter": "esbenp.prettier-vscode",
-          "editor.formatOnSave": true,
           "editor.wordWrap": "off"
         }
       }

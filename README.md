@@ -6,13 +6,13 @@ other utilities are also provided.
 
 ## Differences to Tailwind's Preflight
 
-The following adjustments have been made to to the preflight:
+The following adjustments have been made to the preflight:
 
 1. Tailwind-specific CSS variables and styling removed.
 2. Two Tailwind `font-family` defaults have been removed from the
    preflight in favor of optional imports. One was setting the
-   default font stack for the overall html document, and the other
-   was setting monospace fonts for html elements like `code`.
+   default font stack for the overall HTML document, and the other
+   was setting monospace fonts for HTML elements like `code`.
 
 #### Why Font Family Defaults Removed
 
@@ -52,10 +52,10 @@ import "css-preflight/preflight.css";
 import "css-preflight/mono-elements.css";
 ```
 
-For fastest performance, it's recommended to have the css directly
-injected into the html as a `<style>` tag, along with any other critical
-css applying to above-the-fold content. Avoid putting the `<style>` tag
-inside `<head>` as invalid css can break processing of other elements
+For fastest performance, it's recommended to have the CSS directly
+injected into the HTML as a `<style>` tag, along with any other critical
+CSS applying to above-the-fold content. Avoid putting the `<style>` tag
+inside `<head>` as invalid CSS can break processing of other elements
 inside `<head>`.
 
 ```html
@@ -64,7 +64,7 @@ inside `<head>`.
   <style>
     <!-- Inject here -->
   </style>
-  <!-- rest of html -->
+  <!-- Rest of html -->
 </body>
 ```
 
@@ -76,9 +76,9 @@ font stacks:
 :host {
   font-family:
     /* Your fonts here */
+    sans-serif, /* or serif, monospace, etc. */
     /* then do: */
-    sans-serif,
-    /* or serif, or monospace, etc. */ "Apple Color Emoji",
+    "Apple Color Emoji",
     "Segoe UI Emoji",
     "Segoe UI Symbol",
     "Noto Color Emoji";
@@ -129,9 +129,9 @@ import "css-preflight/font-serif.css";
 
 ### Mono Elements
 
-Sets a default mono font stack for the `code`, `kbd`, `samp`, and `pre`
-html elements. Many design and branding systems don't include
-mono font guidelines so this option can be useful for those cases.
+Sets a default monospace font stack for the `code`, `kbd`, `samp`, and `pre`
+HTML elements. Many design and branding systems don't include
+monospace font guidelines so this option can be useful for those cases.
 
 ```javascript
 import "css-preflight/mono-elements.css";
@@ -139,12 +139,10 @@ import "css-preflight/mono-elements.css";
 
 ### Rem Same Px
 
-Sets `1 rem = 1px` at the root for easier design-dev handoff. This calculation is done
-using `%`, so if the user adjusts the browser font sizes, those will still affect the page
-for accessibility purposes.
-
-Can sometimes mess up dev environment error messages though (the error UI becomes very,
-very small). That can be fixed of course, but just an FYI.
+Sets `1 rem = 1px` at the root for easier design-dev hand-off. This calculation
+is done using `%`, so if the user adjusts the browser font sizes, those will
+still affect the page for accessibility purposes. Note this may affect
+framework error debug message pages in development (e.g. Nuxt, Next, Astro, etc.).
 
 ```javascript
 import "css-preflight/rem-same-px.css"; // styles/rem-same-px.css

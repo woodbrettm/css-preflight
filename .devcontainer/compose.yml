@@ -1,9 +1,11 @@
+name: css-preflight
 services:
   node:
     build:
       context: .
       dockerfile: ./node.Dockerfile
-    image: localhost/css-preflight_devcontainer-node:latest
+    image: localhost/css-preflight-devcontainer-node:latest
+    container_name: css-preflight-devcontainer
     userns_mode: "keep-id"
     volumes:
       - ../:/home/node/css-preflight
