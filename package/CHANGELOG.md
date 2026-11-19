@@ -1,5 +1,12 @@
 # css-preflight
 
+## 2.0.3
+
+### Patch Changes
+
+- 820b072: Fix README.md and LICENSE_TAILWIND.md files missing on NPM
+  registry. v2.0.2 works fine but is just missing these files.
+
 ## 2.0.2
 
 ### Patch Changes
