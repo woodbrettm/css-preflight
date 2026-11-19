@@ -6,10 +6,17 @@ import 'css-preflight/font-sans-serif.css';
 
 import './styles.css';
 
+/*
+  The playground is intentionally barebones
+  to minimize the use of custom css for
+  easier css preflight testing.
+
+  The <hr /> element for example is being
+  used instead of css for horizontal lines.
+*/
 
 export default function App() {
   const [count, setCount] = useState(0);
-
   return (
     <>
       <hr />

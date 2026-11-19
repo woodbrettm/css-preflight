@@ -3,10 +3,14 @@ import type { ResolvedFileMap } from './scripts.types.ts';
 import type { AbsoluteFilePath } from './scripts.types.ts';
 
 import path from 'node:path';
-
 import { copyFile } from 'node:fs/promises';
 import { rm } from 'node:fs/promises';
 
+/*
+  Utils specific for the use of working with
+  the file maps defined in scripts.const.ts
+  and any meta: prefixed script files.
+*/
 
 export function resolveFileMaps
 (fileMaps: FileMap[], resolveRelativeTo: string)
@@ -22,7 +26,6 @@ export function resolveFileMaps
       `resolvedFileMaps length: ${resolvedFileMaps.length}.`
     );
   }
-
   return resolvedFileMaps;
 }
 
@@ -66,11 +69,11 @@ export async function copyFiles
 (fileMaps: ResolvedFileMap[])
 : Promise<void>
 {
-  const promises = fileMaps.map(runFileMapCopy);
+  const promises = fileMaps.map(fileMapCopy);
   await Promise.all(promises);
 }
 
-export async function runFileMapCopy
+export async function fileMapCopy
 (fileMap: ResolvedFileMap)
 : Promise<void>
 {

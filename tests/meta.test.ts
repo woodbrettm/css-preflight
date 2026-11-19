@@ -12,7 +12,6 @@ import { suite } from 'node:test';
 
 import * as CMUtils from '../scripts/meta.utils.ts';
 
-
 suite('unit:meta.utils', () => {
 
   let dirName!: string;
@@ -34,7 +33,7 @@ suite('unit:meta.utils', () => {
     resolvedFileMap = {
       from: path.resolve(dirName, fileMap.from) as AbsoluteFilePath,
       to: path.resolve(dirName, fileMap.to) as AbsoluteFilePath,
-    }
+    };
     resolvedFileMaps = [resolvedFileMap];
 
   });

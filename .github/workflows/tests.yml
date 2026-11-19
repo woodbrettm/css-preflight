@@ -9,7 +9,8 @@ on:
     branches: [main]
 
 jobs:
-  test:
+  tests:
+    name: "Run Tests"
     runs-on: ubuntu-latest
     permissions:
       contents: read

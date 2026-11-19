@@ -3,10 +3,10 @@ description: "Installs node, pnpm, and project dependencies"
 
 inputs:
   cache:
-    # For security reasons, avoid setting true for
-    # workflows or jobs with write permissions.
     description: "Enable pnpm dependency caching"
     required: false
+    # For security reasons, avoid setting true for
+    # workflows or jobs with write permissions.
     default: false
 
 runs:

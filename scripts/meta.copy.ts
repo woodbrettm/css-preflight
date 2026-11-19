@@ -5,7 +5,6 @@ import { consola } from 'consola';
 
 import { FILE_MAPS } from './scripts.const.ts';
 import { FILE_MAPS_DIR } from './scripts.const.ts';
-
 import { copyFiles } from './meta.utils.ts';
 import { resolveFileMaps } from './meta.utils.ts';
 

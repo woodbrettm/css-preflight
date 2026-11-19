@@ -2,7 +2,9 @@
   "$schema": "https://json.schemastore.org/package",
   "name": "playground",
   "private": true,
+  "version": "0.0.0",
   "type": "module",
+  "license": "MIT",
   "dependencies": {
     "css-preflight": "workspace:*",
     "react": "19.3.1",

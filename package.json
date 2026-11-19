@@ -4,6 +4,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "license": "MIT",
   "packageManager": "pnpm@12.21.0",
   "engines": {
     "node": ">=26.0.0"
@@ -16,7 +17,7 @@
     "stylelint-config-modern": "2.0.1",
     "stylelint-config-standard": "41.0.0",
     "stylelint": "18.0.0",
-    "type-fest": "6.0.2",
+    "type-fest": "6.0.1",
     "typescript": "7.0.2"
   },
   "scripts": {
