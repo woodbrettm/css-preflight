@@ -18,6 +18,8 @@ jobs:
 
   tests:
     name: "Run Tests"
+    permissions:
+      contents: read
     uses: ./.github/workflows/tests.yml
 
   # Determines whether to publish, version, or neither (none)
