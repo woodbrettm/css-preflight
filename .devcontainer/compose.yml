@@ -2,11 +2,17 @@ name: css-preflight
 services:
   node:
     build:
-      context: .
-      dockerfile: ./node.Dockerfile
+      context: ../
+      dockerfile: ./.devcontainer/node.Dockerfile
     image: localhost/css-preflight-devcontainer-node:latest
     container_name: css-preflight-devcontainer
-    userns_mode: "keep-id"
+    userns_mode: keep-id
+    # docker sometimes dumps a huge core debug file (GBs in size)
+    # after building containers. This disables that.
+    ulimits:
+      core:
+        soft: 0
+        hard: 0
     volumes:
       - ../:/home/node/css-preflight
     ports:

@@ -1,0 +1,9 @@
+body {
+  background-color: lightgray;
+  padding: 32px;
+}
+
+#root {
+  display: block;
+  max-inline-size: 800px;
+}

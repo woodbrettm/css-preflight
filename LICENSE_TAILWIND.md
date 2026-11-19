@@ -1,6 +1,3 @@
-> The below copyright applies to `./styles/preflight.css` as it's derived directly
-> from Tailwind's preflight css.
-
 MIT License
 
 Copyright (c) Tailwind Labs, Inc.

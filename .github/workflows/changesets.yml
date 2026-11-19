@@ -1,0 +1,128 @@
+name: "Changesets"
+
+# Runs the changesets github actions that either
+# open a PR with bumped package versions or
+# pack and publish packages to NPM.
+
+on:
+  push:
+    branches:
+      - main
+
+# So no other instances of release workflow run at same time
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
+permissions: {}
+
+jobs:
+
+  tests:
+    name: "Run Tests"
+    uses: ./.github/workflows/tests.yml
+
+  # Determines whether to publish, version, or neither (none)
+  select-mode:
+    name: "Select Changesets Mode"
+    runs-on: ubuntu-latest
+    needs: [tests]
+    permissions:
+      contents: read
+    outputs:
+      mode: ${{ steps.select-mode.outputs.mode }}
+      # An id to the artifact containing a list of npm packages
+      # that need publishing.
+      publish-plan-artifact-id: >-
+        ${{ steps.select-mode.outputs.publish-plan-artifact-id }}
+    steps:
+      - name: "Checkout Repository"
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: "Prep Node Env"
+        uses: ./.github/composite-actions/prep-env
+
+      - name: "Determine to Publish or Version"
+        id: select-mode
+        uses: changesets/action/select-mode@ae32849d5ba541f9ae29e40e22a623bc13562f51 # v2.1.2
+
+  version:
+    name: "Version Packages"
+    runs-on: ubuntu-latest
+    if: needs.select-mode.outputs.mode == 'version'
+    needs: [select-mode]
+    permissions:
+      contents: write # writing version commits
+      pull-requests: write # opening pull requests
+    steps:
+      - name: "Checkout Repository"
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: "Prep Node Env"
+        uses: ./.github/composite-actions/prep-env
+
+      - name: "Version Packages"
+        uses: changesets/action/version@ae32849d5ba541f9ae29e40e22a623bc13562f51 # v2.1.2
+        with:
+          pr-title: "chore(release): version packages"
+          commit-message: "chore(release): version packages"
+          script: pnpm run changeset:version
+
+  pack:
+    name: "Prep Package"
+    runs-on: ubuntu-latest
+    if: needs.select-mode.outputs.mode == 'publish'
+    needs: [select-mode]
+    permissions:
+      contents: read
+    outputs:
+      # An id to the artifact containing all
+      # of the packed npm packages
+      pack-dir-artifact-id: >-
+        ${{ steps.pack.outputs.pack-dir-artifact-id }}
+    steps:
+      - name: "Checkout Repository"
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: "Prep Node Env"
+        uses: ./.github/composite-actions/prep-env
+
+      - name: "Copy Readme Files To Package"
+        run: pnpm run meta:copy
+        shell: bash
+
+      - name: "Package NPM Packages"
+        id: pack
+        uses: changesets/action/pack@ae32849d5ba541f9ae29e40e22a623bc13562f51 # v2.1.2
+        with:
+          publish-plan-artifact-id: >-
+            ${{ needs.select-mode.outputs.publish-plan-artifact-id }}
+
+  publish:
+    name: "Publish to NPM"
+    runs-on: ubuntu-latest
+    needs: [pack]
+    permissions:
+      contents: write # tags and Github releases
+      id-token: write # npm trusted publishing
+    steps:
+      - name: "Checkout Repository"
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: "Prep Node Env"
+        uses: ./.github/composite-actions/prep-env
+
+      - name: "Publish Package"
+        uses: changesets/action/publish@ae32849d5ba541f9ae29e40e22a623bc13562f51 # v2.1.2
+        with:
+          create-github-releases: true
+          push-git-tags: true
+          pack-dir-artifact-id: >-
+            ${{ needs.pack.outputs.pack-dir-artifact-id }}
+          script: pnpm run changeset:publish

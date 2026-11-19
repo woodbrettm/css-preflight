@@ -1,0 +1,26 @@
+# PNPM SETTINGS
+
+packages:
+  - package
+  - playground
+
+allowBuilds:
+  esbuild: true
+
+# Relaxes peer dependencies matching
+strictPeerDependencies: false
+
+# Ensures pnpm publish runs on only the main branch
+publishBranch: main
+
+# Ensures exact versions are used when you run pnpm add
+savePrefix: ""
+
+# Only resolve local deps to local files when the workspace: protocol is used
+linkWorkspacePackages: false
+
+# Uses the workspace: protocol without hardcoding the version number
+saveWorkspaceProtocol: rolling
+
+minimumReleaseAgeExclude:
+  - type-fest@6.0.2

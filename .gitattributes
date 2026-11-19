@@ -1,1 +1,5 @@
+# Enforce LF line endings for all auto-detected text files
 * text=auto eol=lf
+
+# Collapse large lockfile diffs for cleaner PRs
+pnpm-lock.yaml -diff

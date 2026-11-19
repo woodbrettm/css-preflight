@@ -1,3 +1,39 @@
+# Node, PNPM
 node_modules
 .pnpm-store
-.vscode
+build
+dist
+
+# Ignore other package manager lockfiles
+# (keep pnpm-lock.yaml)
+package-lock.json
+yarn.lock
+
+# Editor & OS Files
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+*.swp
+*.swo
+TODO.md
+
+# Caches & Temporary Files
+.cache/
+.stylelintcache
+.tmp/
+.temp/
+*.tgz
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Ignoring md Files Copied From Root to Package
+package/*.md
