@@ -1,0 +1,26 @@
+name: "Prep Node Env"
+description: "Installs node, pnpm, and project dependencies"
+
+inputs:
+  cache:
+    description: "Enable pnpm dependency caching"
+    required: false
+    # For security reasons, avoid setting true for
+    # workflows or jobs with write permissions.
+    default: false
+
+runs:
+  using: composite
+  steps:
+    - name: "Install PNPM & Node"
+      uses: pnpm/setup@731dfb6463bbd11c11fd0ee11fe00ed0e36d48a1 # v3.2.0
+      with:
+        runtime: node@26
+        cache: ${{ inputs.cache }}
+        install: false
+        # no need to specify pnpm version as it
+        # uses the package.json packageManager field
+
+    - name: "Install Dependencies"
+      run: pnpm install --frozen-lockfile
+      shell: bash

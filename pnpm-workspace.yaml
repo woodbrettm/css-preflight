@@ -1,0 +1,32 @@
+# Defines which folders in the repo are
+# part of the workspace
+packages:
+  - package
+  - playground
+
+# Controls which dependencies are allowed
+# to run post-install scripts
+allowBuilds:
+  esbuild: true
+
+# Relaxes peer dependencies matching
+strictPeerDependencies: false
+
+# Ensures pnpm publish runs on only the main branch
+publishBranch: main
+
+# Ensures exact versions are used when you run pnpm add
+savePrefix: ""
+
+# Only resolve local deps to local files when the
+# workspace: protocol is used
+linkWorkspacePackages: false
+
+# Uses the workspace: protocol without hardcoding
+# the version number
+saveWorkspaceProtocol: rolling
+
+# Wait 24hrs before installing newly
+# published package versions
+minimumReleaseAge: 1440
+minimumReleaseAgeStrict: true

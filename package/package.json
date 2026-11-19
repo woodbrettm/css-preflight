@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json.schemastore.org/package",
+  "name": "css-preflight",
+  "version": "2.0.1",
+  "type": "module",
+  "license": "MIT",
+  "description": "CSS browser reset based on Tailwind's preflight, with optional enhancements.",
+  "author": {
+    "name": "Brett Wood",
+    "url": "https://github.com/woodbrettm"
+  },
+  "bugs": "https://github.com/woodbrettm/css-preflight/issues",
+  "homepage": "https://github.com/woodbrettm/css-preflight",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/woodbrettm/css-preflight",
+    "directory": "package"
+  },
+  "publishConfig": {
+    "provenance": true
+  },
+  "keywords": [
+    "css",
+    "preflight",
+    "normalize",
+    "reset",
+    "normalizer",
+    "browser"
+  ],
+  "exports": {
+    ".": "./styles/preflight.css",
+    "./preflight.css": "./styles/preflight.css",
+    "./font-mono.css": "./styles/font-mono.css",
+    "./font-sans-serif.css": "./styles/font-sans-serif.css",
+    "./font-serif.css": "./styles/font-serif.css",
+    "./mono-elements.css": "./styles/mono-elements.css",
+    "./rem-same-px.css": "./styles/rem-same-px.css",
+    "./smooth-scroll.css": "./styles/smooth-scroll.css",
+    "./text-wrap-balance.css": "./styles/text-wrap-balance.css"
+  },
+  "files": [
+    "LICENSE.md",
+    "LICENSE_TAILWIND.md",
+    "styles",
+    "package.json",
+    "README.md"
+  ]
+}

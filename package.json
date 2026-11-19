@@ -1,60 +1,34 @@
 {
   "$schema": "https://json.schemastore.org/package",
-  "name": "css-preflight",
-  "version": "2.0.1",
+  "name": "workspace-root",
+  "private": true,
+  "version": "0.0.0",
   "type": "module",
   "license": "MIT",
-  "description": "CSS browser reset based on Tailwind's preflight, with optional enhancements.",
-  "author": {
-    "name": "Brett Wood",
-    "url": "https://github.com/woodbrettm"
+  "packageManager": "pnpm@12.21.0",
+  "engines": {
+    "node": ">=26.0.0"
   },
-  "bugs": "https://github.com/woodbrettm/css-preflight/issues",
-  "homepage": "https://github.com/woodbrettm/css-preflight",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/woodbrettm/css-preflight"
-  },
-  "keywords": [
-    "css",
-    "preflight",
-    "normalize",
-    "reset",
-    "normalizer",
-    "browser"
-  ],
-  "main": "./styles/preflight.css",
-  "style": "./styles/preflight.css",
-  "exports": {
-    ".": "./styles/preflight.css",
-    "./preflight.css": "./styles/preflight.css",
-    "./font-mono.css": "./styles/font-mono.css",
-    "./font-sans-serif.css": "./styles/font-sans-serif.css",
-    "./font-serif.css": "./styles/font-serif.css",
-    "./mono-elements.css": "./styles/mono-elements.css",
-    "./rem-same-px.css": "./styles/rem-same-px.css",
-    "./smooth-scroll.css": "./styles/smooth-scroll.css",
-    "./text-wrap-balance.css": "./styles/text-wrap-balance.css"
-  },
-  "files": [
-    "LICENSE.md",
-    "LICENSE_TAILWIND.md",
-    "styles",
-    "package.json",
-    "README.md"
-  ],
   "devDependencies": {
-    "@changesets/cli": "2.29.5",
-    "prettier": "3.6.2",
-    "vite": "7.0.4",
-    "eslint": "9.31.0",
-    "@eslint/css": "0.10.0"
+    "@changesets/cli": "3.0.3",
+    "@types/node": "26.6.6",
+    "consola": "3.4.2",
+    "oxlint": "1.94.0",
+    "stylelint-config-modern": "2.0.1",
+    "stylelint-config-standard": "41.0.0",
+    "stylelint": "18.0.0",
+    "type-fest": "6.0.1",
+    "typescript": "7.0.2"
   },
   "scripts": {
-    "changeset:version": "changeset version",
     "changeset:add": "changeset",
-    "changeset:release": "changeset publish",
-    "dev": "vite dev --config \"./playground/vite.config.js\"",
-    "lint:css": "eslint \"./styles/**\""
+    "changeset:publish": "changeset publish",
+    "changeset:version": "changeset version",
+    "lint:css": "stylelint \"./package/**/*.css\"",
+    "lint:js": "oxlint",
+    "lint:types": "tsc --noEmit",
+    "meta:copy": "node scripts/meta.copy.ts",
+    "meta:del": "node scripts/meta.del.ts",
+    "tests": "node --test 'tests/**/*.test.ts'"
   }
 }

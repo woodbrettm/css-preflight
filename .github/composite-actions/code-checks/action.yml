@@ -1,9 +1,0 @@
-name: Code Checks
-description: Checks code for compliance using linting, tests, etc.
-
-runs:
-  using: 'composite'
-  steps:
-    - name: Stylelint
-      run: pnpm run lint:css
-      shell: bash
