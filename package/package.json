@@ -28,7 +28,10 @@
     "browser"
   ],
   "exports": {
-    ".": "./styles/preflight.css",
+    ".": {
+      "types": "./index.d.ts",
+      "default": "./styles/preflight.css"
+    },
     "./preflight.css": "./styles/preflight.css",
     "./font-mono.css": "./styles/font-mono.css",
     "./font-sans-serif.css": "./styles/font-sans-serif.css",
@@ -43,6 +46,7 @@
     "LICENSE_TAILWIND.md",
     "styles",
     "package.json",
-    "README.md"
+    "README.md",
+    "index.d.ts"
   ]
 }
