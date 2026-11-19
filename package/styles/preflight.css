@@ -1,6 +1,6 @@
 /*
-  https://github.com/tailwindlabs/tailwindcss/blob/88b9f15b65588a87c5b6b13316530b4aecbc1b0b/packages/tailwindcss/preflight.css
-  Up to Commit 88b9f15, Jul 15, 2025
+  Updated to tailwindcss@4.3.5
+  https://github.com/tailwindlabs/tailwindcss/releases/tag/v4.3.5
 
   Comments with the keyword: "REMOVED" indicate styles existing in Tailwind's preflight that have been removed here.
 */
@@ -38,8 +38,7 @@
 :host {
   line-height: 1.5; /* 1 */
   -webkit-text-size-adjust: 100%; /* 2 */
-  text-size-adjust: 100%; /* 2 */
-  tab-size: 4; /* 3: -moz-tab-size */
+  tab-size: 4; /* 3 */
   -webkit-tap-highlight-color: transparent; /* 7 */
 }
 
@@ -155,7 +154,7 @@ table {
   Use the modern Firefox focus style for all focusable elements.
 */
 
-:-moz-focusring {
+:-moz-focusring:where(:not(iframe)) {
   outline: auto;
 }
 
@@ -177,6 +176,10 @@ summary {
 
 /*
   Make lists unstyled by default.
+
+  Note: When setting list-style: none, browsers don't announce "bullet"
+  for example as that information is no longer exposed by the browser:
+  https://www.maxdesign.com.au/articles/lists.html
 */
 
 ol,
@@ -269,12 +272,16 @@ textarea,
 }
 
 /*
-  REMOVED: Set the default placeholder color to a semi-transparent version of the current text color in
-  browsers that do not crash when using `color-mix(…)` with `currentcolor`.
-  (https://github.com/tailwindlabs/tailwindcss/issues/17194)
-
-  https://github.com/tailwindlabs/tailwindcss/blob/88b9f15b65588a87c5b6b13316530b4aecbc1b0b/packages/tailwindcss/preflight.css#L291
+  Set the default placeholder color to a semi-transparent version of the current text color in browsers that do not
+  crash when using `color-mix(…)` with `currentcolor`. (https://github.com/tailwindlabs/tailwindcss/issues/17194)
 */
+
+@supports (not (-webkit-appearance: -apple-pay-button)) /* Not Safari */ or
+  (contain-intrinsic-size: 1px) /* Safari 17+ */ {
+  ::placeholder {
+    color: color-mix(in oklab, currentcolor 50%, transparent);
+  }
+}
 
 /*
   Prevent resizing textareas horizontally by default.
@@ -370,6 +377,5 @@ input:where([type='button'], [type='reset'], [type='submit']),
 */
 
 [hidden]:where(:not([hidden='until-found'])) {
-  /* eslint-disable-next-line */
   display: none !important;
 }
