@@ -127,4 +127,8 @@ jobs:
           push-git-tags: true
           pack-dir-artifact-id: >-
             ${{ needs.pack.outputs.pack-dir-artifact-id }}
-          script: pnpm run changeset:publish
+          # note that if passing script: as an input here,
+          # the changesets action will ignore the pack-dir-artifact-id
+          # and run that script directly on the checked-out
+          # code in this step. Which completely bypasses what
+          # was outputted from the pack job.

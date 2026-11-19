@@ -22,7 +22,6 @@
   },
   "scripts": {
     "changeset:add": "changeset",
-    "changeset:publish": "changeset publish",
     "changeset:version": "changeset version",
     "lint:css": "stylelint \"./package/**/*.css\"",
     "lint:js": "oxlint",
