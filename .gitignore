@@ -37,3 +37,4 @@ yarn-error.log*
 
 # Ignoring md Files Copied From Root to Package
 package/*.md
+!package/CHANGELOG.md

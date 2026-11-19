@@ -1,5 +1,14 @@
 # css-preflight
 
+## 2.0.2
+
+### Patch Changes
+
+- 328c948: Add type declarations to the bare `css-preflight` export.
+
+  Fixes "Error: Cannot find module or type declarations for
+  side-effect import of 'css-preflight'".
+
 ## 2.0.1
 
 ### Patch Changes
