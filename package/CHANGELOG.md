@@ -1,5 +1,12 @@
 # css-preflight
 
+## 2.1.0
+
+### Minor Changes
+
+- 594dbe3: Update preflight.css with newer tailwind preflight.css file changes.
+  Release: https://github.com/tailwindlabs/tailwindcss/releases/tag/v4.3.5
+
 ## 2.0.3
 
 ### Patch Changes
