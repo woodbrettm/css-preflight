@@ -77,8 +77,8 @@ import 'css-preflight/preflight.css';
 
 ### Additional Exports
 
-| Group / Setup                          | Export                  | Description                             |
-| -------------------------------------- | ----------------------- | --------------------------------------- |
+| Group / Setup                      | Export                  | Description                             |
+| ---------------------------------- | ----------------------- | --------------------------------------- |
 | 📦 [Basic](#basic-setup)           | `preflight-fonts.css`   | Exact fonts from Tailwind's preflight.  |
 | 🛠️ [Customized](#customized-setup) | `font-sans-serif.css`   | Sans serif fonts for default main font. |
 | 🛠️ [Customized](#customized-setup) | `font-serif.css`        | Serif fonts for default main font.      |
