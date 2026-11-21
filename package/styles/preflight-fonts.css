@@ -1,0 +1,42 @@
+/*
+  This file uses all the default font-family and related properties
+  from Tailwind's preflight that were removed from preflight.css
+  in this package.
+*/
+
+html,
+:root,
+:host {
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    'Helvetica Neue',
+    'Noto Sans',
+    Arial,
+    sans-serif,
+    'Apple Color Emoji',
+    'Segoe UI Emoji',
+    'Segoe UI Symbol',
+    'Noto Color Emoji';
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+}
+
+code,
+kbd,
+samp,
+pre {
+  font-family:
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    Monaco,
+    Consolas,
+    'Liberation Mono',
+    'Courier New',
+    monospace;
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+}
