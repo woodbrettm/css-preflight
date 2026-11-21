@@ -14,6 +14,7 @@
     "@types/node": "26.6.6",
     "consola": "3.4.2",
     "oxlint": "1.94.0",
+    "oxfmt": "0.79.0",
     "stylelint-config-modern": "2.0.1",
     "stylelint-config-standard": "41.0.0",
     "stylelint": "18.0.0",
@@ -24,10 +25,12 @@
     "changeset:add": "changeset",
     "changeset:version": "changeset version",
     "lint:css": "stylelint \"./package/**/*.css\"",
+    "lint:fmt": "oxfmt --check",
     "lint:js": "oxlint",
     "lint:types": "tsc --noEmit",
     "meta:copy": "node scripts/meta.copy.ts",
     "meta:del": "node scripts/meta.del.ts",
-    "tests": "node --test 'tests/**/*.test.ts'"
+    "tests": "node --test 'tests/**/*.test.ts'",
+    "format": "oxfmt"
   }
 }
