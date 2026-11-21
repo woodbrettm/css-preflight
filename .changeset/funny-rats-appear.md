@@ -1,5 +1,5 @@
 ---
-"css-preflight": patch
+"css-preflight": minor
 ---
 
 Update preflight.css with newer tailwind preflight.css file changes.
