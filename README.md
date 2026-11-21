@@ -7,17 +7,17 @@
 [![NPM Tag: Modern CSS][tag-3-badge]][tag-3-npm]
 [![NPM Tag: Vanilla CSS][tag-4-badge]][tag-4-npm]
 
-[npm-badge]: https://img.shields.io/badge/NPM-css--preflight-darkred
+[npm-badge]: https://img.shields.io/badge/NPM-css--preflight-%23732A2A
 [npm-package]: https://www.npmjs.com/package/css-preflight
-[gh-badge]: https://img.shields.io/badge/Github-woodbrettm/css--preflight-blue
+[gh-badge]: https://img.shields.io/badge/Github-woodbrettm/css--preflight-%23205069
 [gh-package]: https://github.com/woodbrettm/css-preflight
-[tag-1-badge]: https://img.shields.io/badge/CSS_Reset-grey
+[tag-1-badge]: https://img.shields.io/badge/CSS_Reset-%2354413E
 [tag-1-npm]: https://www.npmjs.com/search?q=keywords:css-reset
-[tag-2-badge]: https://img.shields.io/badge/Normalize_CSS-grey
+[tag-2-badge]: https://img.shields.io/badge/Normalize_CSS-%2354413E
 [tag-2-npm]: https://www.npmjs.com/search?q=keywords:normalize-css
-[tag-3-badge]: https://img.shields.io/badge/Modern_CSS-grey
+[tag-3-badge]: https://img.shields.io/badge/Modern_CSS-%2354413E
 [tag-3-npm]: https://www.npmjs.com/search?q=keywords:modern-css
-[tag-4-badge]: https://img.shields.io/badge/Vanilla_CSS-grey
+[tag-4-badge]: https://img.shields.io/badge/Vanilla_CSS-%2354413E
 [tag-4-npm]: https://www.npmjs.com/search?q=keywords:vanilla-css
 
 CSS Preflight is a CSS reset that normalizes default styling across major browsers, based on [Tailwind's preflight][tailwind-preflight] and adapted for non-Tailwind projects. Enhancements like smooth scrolling and other utilities are also provided.
