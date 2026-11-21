@@ -41,7 +41,7 @@ yarn add css-preflight
 
 > ⚠️ It's recommended to pin `css-preflight` to an exact version or minor release. While small changes synced from Tailwind's preflight are released as minor version changes, there may be side effects this package can't account for given the global nature of a preflight.
 
-**`🏗️ Quick Setup:`** For the TL;DR version, add these imports to your layout or root app file. This matches closest to the Tailwind preflight, in accordance with the **📦 [Basic Setup](#basic-setup)** guide:
+**`🏗️ Quick Setup:`** For the TL;DR version, add these imports to your layout or root app file. This matches closest to the Tailwind preflight, in accordance with the 📦 [Basic Setup](#basic-setup) guide:
 
 ```javascript
 // main preflight
@@ -56,13 +56,13 @@ import 'css-preflight/preflight-fonts.css';
 
 The package is broken down into 4 groups:
 
-**📦 [Basic Setup:](#basic-setup)** Fastest way to get started, matching the Tailwind preflight the closest.
+📦 [Basic Setup:](#basic-setup) Fastest way to get started, matching the Tailwind preflight the closest.
 
-**🛠️ [Customized Setup:](#customized-setup)** Allows for customization on which default font stacks to use.
+🛠️ [Customized Setup:](#customized-setup) Allows for customization on which default font stacks to use.
 
-**❄️ [Minimal Setup:](#minimal-setup)** Base Tailwind preflight only. No default fonts are provided.
+❄️ [Minimal Setup:](#minimal-setup) Base Tailwind preflight only. No default fonts are provided.
 
-**✨ [Enhancements:](#enhancements)** Imports that add enhancements beyond the preflight and font stacks.
+✨ [Enhancements:](#enhancements) Imports that add enhancements beyond the preflight and font stacks.
 
 ### The Main Preflight
 
@@ -79,18 +79,18 @@ import 'css-preflight/preflight.css';
 
 | Group / Setup                          | Export                  | Description                             |
 | -------------------------------------- | ----------------------- | --------------------------------------- |
-| **📦 [Basic](#basic-setup)**           | `preflight-fonts.css`   | Exact fonts from Tailwind's preflight.  |
-| **🛠️ [Customized](#customized-setup)** | `font-sans-serif.css`   | Sans serif fonts for default main font. |
-| **🛠️ [Customized](#customized-setup)** | `font-serif.css`        | Serif fonts for default main font.      |
-| **🛠️ [Customized](#customized-setup)** | `font-mono.css`         | Mono fonts for default main font.       |
-| **🛠️ [Customized](#customized-setup)** | `mono-elements.css`     | Mono fonts for specific HTML elements.  |
-| **✨ [Enhancements](#enhancements)**   | `rem-same-px.css`       | 1rem = 1px + respecting accessibility.  |
-| **✨ [Enhancements](#enhancements)**   | `smooth-scroll.css`     | Smooth scrolling to #anchor links.      |
-| **✨ [Enhancements](#enhancements)**   | `text-wrap-balance.css` | Helps prevent single words on newlines. |
+| 📦 [Basic](#basic-setup)           | `preflight-fonts.css`   | Exact fonts from Tailwind's preflight.  |
+| 🛠️ [Customized](#customized-setup) | `font-sans-serif.css`   | Sans serif fonts for default main font. |
+| 🛠️ [Customized](#customized-setup) | `font-serif.css`        | Serif fonts for default main font.      |
+| 🛠️ [Customized](#customized-setup) | `font-mono.css`         | Mono fonts for default main font.       |
+| 🛠️ [Customized](#customized-setup) | `mono-elements.css`     | Mono fonts for specific HTML elements.  |
+| ✨ [Enhancements](#enhancements)   | `rem-same-px.css`       | 1rem = 1px + respecting accessibility.  |
+| ✨ [Enhancements](#enhancements)   | `smooth-scroll.css`     | Smooth scrolling to #anchor links.      |
+| ✨ [Enhancements](#enhancements)   | `text-wrap-balance.css` | Helps prevent single words on newlines. |
 
 ## Basic Setup
 
-📦 Combining these imports is the fastest way to get started and match closely to the original Tailwind preflight. If wanting to skip using `preflight-fonts.css`, see the **❄️ [Minimal Setup](#minimal-setup)** for notes.
+📦 Combining these imports is the fastest way to get started and match closely to the original Tailwind preflight. If wanting to skip using `preflight-fonts.css`, see the ❄️ [Minimal Setup](#minimal-setup) for notes.
 
 ```javascript
 // main preflight
