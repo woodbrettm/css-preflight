@@ -3,11 +3,13 @@
   anchor on a page.
 */
 
+html,
 :root {
   scroll-behavior: smooth;
 }
 
 @media (prefers-reduced-motion) {
+  html,
   :root {
     scroll-behavior: auto;
   }

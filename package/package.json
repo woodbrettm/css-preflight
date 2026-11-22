@@ -20,12 +20,22 @@
     "provenance": true
   },
   "keywords": [
+    "base-styles",
+    "browser-reset",
     "css",
-    "preflight",
+    "css-reset",
+    "modern-css",
+    "modern-reset",
     "normalize",
+    "normalize-css",
+    "preflight",
     "reset",
-    "normalizer",
-    "browser"
+    "reset-css",
+    "stylesheet",
+    "tailwind",
+    "tailwind-preflight",
+    "tailwindcss",
+    "vanilla-css"
   ],
   "exports": {
     ".": {
@@ -33,6 +43,7 @@
       "default": "./styles/preflight.css"
     },
     "./preflight.css": "./styles/preflight.css",
+    "./preflight-fonts.css": "./styles/preflight-fonts.css",
     "./font-mono.css": "./styles/font-mono.css",
     "./font-sans-serif.css": "./styles/font-sans-serif.css",
     "./font-serif.css": "./styles/font-serif.css",
