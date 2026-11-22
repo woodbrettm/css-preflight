@@ -56,13 +56,13 @@ import 'css-preflight/preflight-fonts.css';
 
 The package is broken down into 4 groups:
 
-* 🪵 [Basic Setup:](#basic-setup) Fastest way to get started, matching the Tailwind preflight the closest.
+🪵 [Basic Setup:](#basic-setup) Fastest way to get started, matching the Tailwind preflight the closest.
 
-* 🌊 [Customized Setup:](#customized-setup) Allows for customization of the default font stack.
+🌊 [Customized Setup:](#customized-setup) Allows for customization of the default font stack.
 
-* ❄️ [Minimal Setup:](#minimal-setup) Base Tailwind preflight only. No default fonts are provided.
+❄️ [Minimal Setup:](#minimal-setup) Base Tailwind preflight only. No default fonts are provided.
 
-* 🔥 [Enhancements:](#enhancements) Imports that add improvements beyond the preflight and font stacks.
+🔥 [Enhancements:](#enhancements) Imports that add improvements beyond the preflight and font stacks.
 
 ### The Main Preflight
 
