@@ -20,7 +20,7 @@
 [tag-4-badge]: https://img.shields.io/badge/vanilla--css-%2354413E
 [tag-4-npm]: https://www.npmjs.com/search?q=keywords:vanilla-css
 
-CSS Preflight is a CSS reset that normalizes default styling across major browsers, based on [Tailwind's preflight][tailwind-preflight] and adapted for non-Tailwind projects. Optional utilities like smooth scrolling are also provided.
+CSS Preflight is a CSS reset that normalizes default styling across browsers, based on [Tailwind's preflight][tailwind-preflight] and adapted for non-Tailwind projects. Optional utilities like smooth scrolling are also provided.
 
 **`💡 Why Tailwind?:`** Their preflight is consistently maintained and used by a large audience, making it a reliable foundation to build on for vanilla css projects.
 
@@ -39,9 +39,9 @@ pnpm add css-preflight
 yarn add css-preflight
 ```
 
-> ⚠️ It's recommended to pin `css-preflight` to an exact version or minor release. While small changes synced from Tailwind's preflight are released as minor version changes, there may be side effects this package can't account for given the global nature of a preflight.
+> ⚠️ It's recommended pinning `css-preflight` to an exact version or minor release. While small changes synced from Tailwind's preflight are released as minor version changes, there may be unexpected side effects given the global nature of a preflight.
 
-**`🏗️ Quick Setup:`** For the TL;DR version, add these imports to your layout or root app file. This matches closest to the Tailwind preflight, in accordance with the 🪵 [Basic Setup](#basic-setup) guide:
+**`🏗️ Quick Setup:`** For the TL;DR version, add these imports to the layout or main app file. This matches closest to the Tailwind preflight, in accordance with the 🪵 [Basic Setup](#basic-setup) guide:
 
 ```javascript
 // main preflight
@@ -58,11 +58,11 @@ The package is broken down into 4 groups:
 
 🪵 [Basic Setup:](#basic-setup) Fastest way to get started, matching the Tailwind preflight the closest.
 
-🌊 [Customized Setup:](#customized-setup) Allows for customization on which default font stacks to use.
+🌊 [Customized Setup:](#customized-setup) Allows for customization of the default font stack.
 
 ❄️ [Minimal Setup:](#minimal-setup) Base Tailwind preflight only. No default fonts are provided.
 
-🔥 [Enhancements:](#enhancements) Imports that add enhancements beyond the preflight and font stacks.
+🔥 [Enhancements:](#enhancements) Imports that add improvements beyond the preflight and font stacks.
 
 ### The Main Preflight
 
@@ -73,7 +73,7 @@ The core preflight with Tailwind-specifics stripped from the stylesheet:
 import 'css-preflight/preflight.css';
 ```
 
-> 💡 For the sake of possible customization, all fonts were stripped from the Tailwind preflight when drafting the `preflight.css` file. `preflight-fonts.css` covers this if wanting to use them.
+> 💡 For possible customization, all fonts were stripped from the Tailwind preflight in this package's `preflight.css` file. `preflight-fonts.css` is available if wanting to include them.
 
 ### Additional Exports
 
@@ -104,31 +104,32 @@ import 'css-preflight/preflight-fonts.css';
 
 ## Customized Setup
 
-🌊 If wanting more customization over the font stack, but still wanting to use what's provided from css-preflight rather than defining completely custom font stacks. Import only one of the Customized Fonts. So max total should be 3 imports when using this setup.
+🌊 Follow this if wanting more customization over the font stack, but still wanting to use what's provided from `css-preflight` rather than defining a completely custom default font stack.
 
 ```javascript
 // main preflight
+// alias: import 'css-preflight'
 import 'css-preflight/preflight.css';
 
-// Choose between these which set the default
+// Choose ONE OF these which set the default
 // font on the root html element. Skip
 // if defining a custom default font stack.
 import 'css-preflight/font-sans-serif.css';
 import 'css-preflight/font-serif.css';
 import 'css-preflight/font-mono.css';
 
-// Sets default fonts for html elements that use
+// Sets default fonts for html elements
+// (e.g. <code>, <kbd>, <samp>, <pre>) that use
 // monospace text by default. Skip if defining
 // a custom default font stack for these elements.
-// (which are <code>, <kbd>, <samp>, and <pre>)
 import 'css-preflight/mono-elements.css';
 ```
 
-> 💡 The `font-*.css` and `mono-elements.css` imports use their own font stacks, partially derived from Tailwind's preflight. Additionally, they avoid the use of any system fonts, while `preflight-fonts.css` in the Basic Setup includes them to match Tailwind's preflight.
+> 💡 The `font-*.css` and `mono-elements.css` imports use their own font stacks, only partially derived from Tailwind's preflight. Additionally, they avoid the use of any system fonts, while `preflight-fonts.css` in the 🪵 [Basic Setup](#basic-setup) includes them to match Tailwind's preflight.
 
 ## Minimal Setup
 
-❄️ The only import in this setup is the base preflight. Best if wanting to benefit from Tailwind's preflight CSS but prefer to define custom font stacks. Don't forget to define default fonts for the `<code>`, `<kbd>`, `<samp>`, and `<pre>` html elements.
+❄️ The only import in this setup is the base preflight. Best if wanting to benefit from Tailwind's preflight CSS but prefer to define a completely custom default font stack. Don't forget to define default mono fonts for the `<code>`, `<kbd>`, `<samp>`, and `<pre>` html elements.
 
 ```javascript
 // Bare import
@@ -140,19 +141,23 @@ import 'css-preflight/preflight.css';
 
 ## Enhancements
 
-🔥 Optional imports that extend the base preflight and core exports with additional features. Place these after the core imports. Authored separately from the Tailwind preflight.
+🔥 Optional imports that extend the base preflight and core exports with additional features. Place these after the core preflight and font imports to make sure they override any defaults.
 
 ### Rem Same Pixels
 
-Sets `1 rem = 1px` at the root for easier design-dev hand-off. This calculation is done using `%`, so if the user adjusts the browser font sizes, those will still affect the page for accessibility purposes. Note this may affect framework error debug message pages in development (e.g. Nuxt, Next, Astro, etc.).
+Sets `1 rem = 1px` at the root for easier design-dev hand-off. This calculation is done using `%`, so if the user adjusts the browser font sizes, those will still affect the page for accessibility purposes.
 
 ```javascript
 import 'css-preflight/rem-same-px.css';
 ```
 
+> ⚠️ Note this may affect framework error pages in development (e.g. Nuxt, Next, Astro, etc.), and have unexpected affects with UI libraries. Use with caution.
+
 ### Smooth Scroll
 
-Enables smooth scrolling to anchor points (e.g. #about). Disables when `prefers-reduced-motion`.
+Enables smooth scrolling to anchor points, e.g. `a href="#about"` when clicked, the browser scrolls in a smooth motion to `h2 id="about"` instead of the default instant motion.
+
+Reverts to instant when `prefers-reduced-motion`.
 
 ```javascript
 import 'css-preflight/smooth-scroll.css';
@@ -160,7 +165,7 @@ import 'css-preflight/smooth-scroll.css';
 
 ### Text Wrap Balance
 
-Adds `text-wrap: balance` on h1-h6 and blockquote. Helps prevent single words wrapping to newlines, instead opting to wrap several to keep things visually appealing.
+Adds `text-wrap: balance` on `h1-h6` and `blockquote`. Helps prevent single words wrapping to newlines, instead opting to wrap several to keep things visually appealing.
 
 ```javascript
 import 'css-preflight/text-wrap-balance.css';
