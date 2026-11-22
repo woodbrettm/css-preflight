@@ -25,7 +25,7 @@
     "changeset:add": "changeset",
     "changeset:version": "changeset version",
     "lint:css": "stylelint \"./package/**/*.css\"",
-    "lint:fmt": "oxfmt --check",
+    "lint:formatting": "oxfmt --check",
     "lint:js": "oxlint",
     "lint:types": "tsc --noEmit",
     "meta:copy": "node scripts/meta.copy.ts",

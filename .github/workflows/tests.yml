@@ -26,7 +26,7 @@ jobs:
           cache: true
 
       - name: "Lint Formatting"
-        run: pnpm run lint:fmt
+        run: pnpm run lint:formatting
         shell: bash
 
       - name: "Lint CSS"
