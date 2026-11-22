@@ -2,7 +2,7 @@
 "css-preflight": minor
 ---
 
-Add `preflight-fonts.css` export.
+Add `preflight-fonts.css` export and some small css tweaks.
 
 In previous versions of css preflight, all fonts were stripped from the Tailwind preflight: `preflight.css`, and there was no way to reintroduce them back into the preflight.
 

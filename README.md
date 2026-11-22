@@ -22,7 +22,7 @@
 
 CSS Preflight is a CSS reset that normalizes default styling across browsers, based on [Tailwind's preflight][tailwind-preflight] and adapted for non-Tailwind projects. Optional utilities like smooth scrolling are also provided.
 
-**`💡 Why Tailwind?:`** Their preflight is consistently maintained and used by a large audience, making it a reliable foundation to build on for vanilla css projects.
+**`💡 Why Tailwind?:`** Their preflight is consistently maintained and used by a large audience, making it a reliable foundation to build on for vanilla CSS projects.
 
 [tailwind-preflight]: https://github.com/tailwindlabs/tailwindcss/blob/main/packages/tailwindcss/preflight.css
 
@@ -39,7 +39,7 @@ pnpm add css-preflight
 yarn add css-preflight
 ```
 
-> ⚠️ It's recommended pinning `css-preflight` to an exact version or minor release. While small changes synced from Tailwind's preflight are released as minor version changes, there may be unexpected side effects given the global nature of a preflight.
+> ⚠️ Pinning `css-preflight` to an exact version or minor release is recommended. While small changes synced from Tailwind's preflight are released as minor version changes, there may be unexpected side effects given the global nature of a preflight.
 
 **`🏗️ Quick Setup:`** For the TL;DR version, add these imports to the layout or main app file. This matches closest to the Tailwind preflight, in accordance with the 🪵 [Basic Setup](#basic-setup) guide:
 
@@ -56,13 +56,13 @@ import 'css-preflight/preflight-fonts.css';
 
 The package is broken down into 4 groups:
 
-🪵 [Basic Setup:](#basic-setup) Fastest way to get started, matching the Tailwind preflight the closest.
+* 🪵 [Basic Setup:](#basic-setup) Fastest way to get started, matching the Tailwind preflight the closest.
 
-🌊 [Customized Setup:](#customized-setup) Allows for customization of the default font stack.
+* 🌊 [Customized Setup:](#customized-setup) Allows for customization of the default font stack.
 
-❄️ [Minimal Setup:](#minimal-setup) Base Tailwind preflight only. No default fonts are provided.
+* ❄️ [Minimal Setup:](#minimal-setup) Base Tailwind preflight only. No default fonts are provided.
 
-🔥 [Enhancements:](#enhancements) Imports that add improvements beyond the preflight and font stacks.
+* 🔥 [Enhancements:](#enhancements) Imports that add improvements beyond the preflight and font stacks.
 
 ### The Main Preflight
 
@@ -129,7 +129,7 @@ import 'css-preflight/mono-elements.css';
 
 ## Minimal Setup
 
-❄️ The only import in this setup is the base preflight. Best if wanting to benefit from Tailwind's preflight CSS but prefer to define a completely custom default font stack. Don't forget to define default mono fonts for the `<code>`, `<kbd>`, `<samp>`, and `<pre>` html elements.
+❄️ The only import in this setup is the base preflight. Best if wanting to benefit from Tailwind's preflight CSS but prefer to define a completely custom default font stack. Don't forget to define default mono fonts for the `<code>`, `<kbd>`, `<samp>`, and `<pre>` HTML elements.
 
 ```javascript
 // Bare import
@@ -151,11 +151,11 @@ Sets `1 rem = 1px` at the root for easier design-dev hand-off. This calculation 
 import 'css-preflight/rem-same-px.css';
 ```
 
-> ⚠️ Note this may affect framework error pages in development (e.g. Nuxt, Next, Astro, etc.), and have unexpected affects with UI libraries. Use with caution.
+> ⚠️ Note this may affect framework error pages in development (e.g. Nuxt, Next, Astro, etc.), and have unexpected effects with UI libraries. Use with caution.
 
 ### Smooth Scroll
 
-Enables smooth scrolling to anchor points, e.g. `a href="#about"` when clicked, the browser scrolls in a smooth motion to `h2 id="about"` instead of the default instant motion.
+Enables smooth scrolling to anchor points, e.g. `<a href="#about">` when clicked, the browser scrolls in a smooth motion to `<h2 id="about">` instead of the default instant motion.
 
 Reverts to instant when `prefers-reduced-motion`.
 
