@@ -48,7 +48,7 @@ yarn add css-preflight
 // alias: import 'css-preflight'
 import 'css-preflight/preflight.css';
 
-// tailwind-specific fonts
+// Tailwind-specific fonts
 import 'css-preflight/preflight-fonts.css';
 ```
 
@@ -62,7 +62,7 @@ The package is broken down into 4 groups:
 
 ❄️ [Minimal Setup:](#minimal-setup) Base Tailwind preflight only. No default fonts are provided.
 
-🔥 [Enhancements:](#enhancements) Imports that add improvements beyond the preflight and font stacks.
+🔥 [Enhancements:](#enhancements) Exports that add improvements beyond the preflight and font stacks.
 
 ### The Main Preflight
 
@@ -111,7 +111,7 @@ import 'css-preflight/preflight-fonts.css';
 // alias: import 'css-preflight'
 import 'css-preflight/preflight.css';
 
-// Choose ONE OF these which set the default
+// Choose ONE of these which set the default
 // font on the root html element. Skip
 // if defining a custom default font stack.
 import 'css-preflight/font-sans-serif.css';
@@ -125,7 +125,7 @@ import 'css-preflight/font-mono.css';
 import 'css-preflight/mono-elements.css';
 ```
 
-> 💡 The `font-*.css` and `mono-elements.css` imports use their own font stacks, only partially derived from Tailwind's preflight. Additionally, they avoid the use of any system fonts, while `preflight-fonts.css` in the 🪵 [Basic Setup](#basic-setup) includes them to match Tailwind's preflight.
+> 💡 The `font-*.css` and `mono-elements.css` imports use their own font stacks, only partially derived from Tailwind's preflight. Additionally, they avoid the use of any `system-ui` fonts, while `preflight-fonts.css` in the 🪵 [Basic Setup](#basic-setup) includes them to match Tailwind's preflight.
 
 ## Minimal Setup
 
